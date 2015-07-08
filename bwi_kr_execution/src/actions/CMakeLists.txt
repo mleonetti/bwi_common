@@ -14,4 +14,6 @@ SET( kractions_SRC ${KREXEC_SRC}
 	${CMAKE_CURRENT_SOURCE_DIR}/ChangeFloor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/CallElevator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/../StaticFacts.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/DeliverPackage.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/ReceivePackage.cpp
 	PARENT_SCOPE)

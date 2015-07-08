@@ -138,6 +138,8 @@ int main() {
 	actionMap.insert(std::make_pair(std::string("changefloor"), new SimpleAction()));
     actionMap.insert(std::make_pair(std::string("callelevator"), new SimpleAction()));
     actionMap.insert(std::make_pair(std::string("remind"), new SimpleAction()));
+    actionMap.insert(std::make_pair(std::string("deliverpackage"), new SimpleAction()));
+    actionMap.insert(std::make_pair(std::string("receivepackage"), new SimpleAction()));
 	
 	vector<AnswerSet> sets = readAnswerSets(cin);
 	
