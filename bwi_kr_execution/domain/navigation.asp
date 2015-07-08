@@ -35,18 +35,6 @@ at(R,I+1) :- goto(O,I), object(O), inside(O,R), room(R), I=0..n-2.
 :- goto(O,I), inside(O,R1), at(R2,I), not acc(R1,R2), object(O), room(R1), room(R2), I=0..n-1.
 
 
-delivered(C,L,P,I+1) :- deliverpackage(C,L,P,I), package(P), I=0..n-2.
-:- deliverpackage(C,L,P,I), not received(C,P,I), I=0..n-1.
-:- deliverpackage(C,L,P,I), not at(L,I), I=0..n-1.
-:- delivered(C,L,P,I), deliverpackage(C,L,P,I), I=0..n-1.
-
-
-received(C,P,I+1) :- receivepackage(C,P,I), package(P), I=0..n-2.
-:- received(C,P,I), receivepackage(C,P,I), I=0..n-1.
-:- receivepackage(C,P,I), not at(C,I), I=0..n-1.
-:- receivepackage(C,P,I), approach(D,J), J+1==I, I=0..n-1.
-:- receivepackage(C,P,I), opendoor(D,J), J+1==I, I=0..n-1.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %  Static laws
@@ -88,13 +76,6 @@ open(D,I+1) :- open(D,I), not -open(D,I+1), I=0..n-2.
 beside(D,I+1) :- beside(D,I), not -beside(D,I+1), I=0..n-2.
 -beside(D,I+1) :- -beside(D,I), not beside(D,I+1), I=0..n-2.
 
-% received is inertial
-received(C,P,I+1) :- received(C,P,I), not -received(C,P,I+1), I=0..n-2.
--received(C,P,I+1) :- -received(C,P,I), not received(C,P,I+1), I=0..n-2.
-
-% delivered is inertial
-delivered(C,L,P,I+1) :- delivered(C,L,P,I), not -delivered(C,L,P,I+1), I=0..n-2.
--delivered(C,L,P,I+1) :- -delivered(C,L,P,I), not delivered(C,L,P,I+1),  I=0..n-2.
 
 %hide fluents implied by others
 #hide -at/2.

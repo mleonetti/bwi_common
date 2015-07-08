@@ -156,10 +156,8 @@ acc(R1,R2) :- acc(R2,R1), room(R1), room(R2).
 acc(R1,R2) :- acc(R1,R3), acc(R2,R3), room(R1), room(R2), room(R3).             
 
 
-package(p1).
 
 object(coffee_counter).
-object(P):-package(P).                                                        
 inside(coffee_counter, l2_302).
 
 
